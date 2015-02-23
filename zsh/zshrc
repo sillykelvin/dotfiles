@@ -14,6 +14,13 @@ if [ ! -n "$ZSH_COMPDUMP" ]; then
     ZSH_COMPDUMP="$HOME/.cache/zsh/zcompdump"
 fi
 
+# mkdir for zsh cache
+zsh_cache=$HOME/.cache/zsh
+if [ -n "$XDG_CACHE_HOME" ]; then
+    zsh_cache=$XDG_CACHE_HOME/zsh
+fi
+mkdir -p $zsh_cache
+unset zsh_cache
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
