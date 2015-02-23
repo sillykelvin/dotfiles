@@ -1,0 +1,11 @@
+!
+! .Xmodmap
+!
+
+
+!
+! The following line is used to reverse touchpad scroll
+! direction, notice the position of 5 and 4.
+!
+pointer = 1 2 3 5 4 6 7 8 9 10 11 12
+

@@ -1,0 +1,33 @@
+!
+! .Xresources
+!
+
+!
+! Solarized color scheme
+!
+#include "~/.config/colors/solarized-dark"
+
+
+!
+! XFT settings
+!
+Xft.antialias: 1
+Xft.autohint:  0
+Xft.dpi:       96
+Xft.hinting:   1
+Xft.hintstyle: hintsfull
+Xft.lcdfilter: lcddefault
+Xft.rgba:      rgb
+
+
+!
+! Urxvt
+!
+URxvt.depth:           32
+URxvt.scrollBar:       false
+URxvt.font:            xft:Source Code Pro:size=10
+URxvt.boldFont:        xft:Source Code Pro:bold:size=10
+URxvt.perl-ext-common: default, clipboard, matcher
+URxvt.urlLauncher:     chromium
+URxvt.matcher.button:  1
+
