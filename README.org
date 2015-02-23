@@ -1,0 +1,7 @@
+#+TITLE:     Kelvin's dotfiles
+#+AUTHOR:    Kelvin Hu
+#+EMAIL:     ini.kelvin@gmail.com
+#+DATE:      2015-02-23 Wed
+
+
+My personal dotfiles for Archlinux.
