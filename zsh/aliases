@@ -1,0 +1,38 @@
+#
+# Aliases of zsh
+#
+
+
+# ls
+alias ls='LC_COLLATE=C ls --color=auto --group-directories-first'
+alias ll='ls -alF'
+
+# rm directories
+alias rd='rm -rf'
+
+# clear
+alias cls='clear'
+
+# ping
+alias ping='ping -c 3'
+
+# git
+alias g='git'
+alias gs='git status'
+alias ga='git add'
+alias gc='git checkout'
+alias gb='git branch -av'
+alias gm='git merge'
+alias gd='git diff'
+alias gdc='git diff --cached'
+alias gcm='git commit -m'
+alias gcam='git commit -am'
+alias gl='git log'
+alias glgdo='git log --graph --decorate --oneline'
+alias gpo='git push origin'
+alias gpom='git push origin master'
+alias gpos='git push origin source'
+alias gpod='git push origin devel'
+alias glom='git pull origin master'
+alias glos='git pull origin source'
+alias glod='git pull origin devel'
