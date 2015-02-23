@@ -5,7 +5,7 @@
 !
 ! Solarized color scheme
 !
-#include "~/.config/colors/solarized-dark"
+#include "colors/solarized-dark"
 
 
 !
