@@ -7,17 +7,23 @@
 alias ls='LC_COLLATE=C ls --color=auto --group-directories-first'
 alias ll='ls -alF'
 
+# grep
+alias grep='grep --color=auto'
+
+# vi
+alias vi=vim
+
 # rm directories
 alias rd='rm -rf'
 
 # clear
-alias cls='clear'
+alias cls=clear
 
 # ping
 alias ping='ping -c 3'
 
 # git
-alias g='git'
+alias g=git
 alias gs='git status'
 alias ga='git add'
 alias gc='git checkout'

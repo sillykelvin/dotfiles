@@ -7,7 +7,11 @@
 source "$HOME/.config/zsh/exports"
 
 if [ ! -n "$ZSH" ]; then
-  ZSH=$HOME/.config/zsh/oh-my-zsh
+  ZSH="$HOME/.config/zsh/oh-my-zsh"
+fi
+
+if [ ! -n "$ZSH_COMPDUMP" ]; then
+    ZSH_COMPDUMP="$HOME/.cache/zsh/zcompdump"
 fi
 
 
@@ -72,5 +76,14 @@ setopt autocd
 # Set emacs like key binding
 bindkey -e
 
-# aliases
+# Execute in background
+{
+   # Compile the completion dump to increase startup speed
+   dump_file="$ZSH_COMPDUMP"
+   if [[ "$dump_file" -nt "${dump_file}.zwc" || ! -s "${dump_file}.zwc" ]]; then
+      zcompile "$dump_file"
+   fi
+} &!
+
+# Aliases
 source "$XDG_CONFIG_HOME/zsh/aliases"
