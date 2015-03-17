@@ -17,6 +17,15 @@ fi
 
 
 #
+# Fcitx input method
+#
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS="@im=fcitx"
+fcitx -d
+
+
+#
 # Close X by Ctrl + Alt + Backspace
 #
 setxkbmap -option terminate:ctrl_alt_bksp
