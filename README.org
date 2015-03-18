@@ -6,8 +6,8 @@
 
 My personal dotfiles for Archlinux.
 
-: cd ~
-: git clone https://github.com/kelvinh/dotfiles.git .config
-: ln -s .config/alsa/asoundrc .asoundrc
-: ln -s .config/xorg/xinitrc .xinitrc
-: ln -s .config/zsh/zshrc .zshrc
+: $ cd ~
+: $ git clone https://github.com/kelvinh/dotfiles.git .config
+: $ ln -s .config/alsa/asoundrc .asoundrc
+: $ ln -s .config/xorg/xinitrc .xinitrc
+: $ ln -s .config/zsh/zshrc .zshrc
