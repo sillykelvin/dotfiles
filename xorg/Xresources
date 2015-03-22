@@ -25,8 +25,8 @@ Xft.rgba:      rgb
 !
 URxvt.depth:                32
 URxvt.scrollBar:            false
-URxvt.font:                 xft:Source Code Pro:size=12
-URxvt.boldFont:             xft:Source Code Pro:bold:size=12
+URxvt.font:                 xft:PragmataPro:size=14
+URxvt.boldFont:             xft:PragmataPro:bold:size=14
 URxvt.perl-ext-common:      default,clipboard,url-select,keyboard-select
 URxvt.url-select.launcher:  chromium
 URxvt.url-select.underline: true
