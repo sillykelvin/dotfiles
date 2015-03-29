@@ -42,6 +42,13 @@ modmap=$XDG_CONFIG_HOME/xorg/Xmodmap
 
 
 #
+# Some daemon processes
+#
+xcompmgr -C &
+urxvtd -q -o -f &
+
+
+#
 # Start window manager
 #
 exec i3
