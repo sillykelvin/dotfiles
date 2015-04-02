@@ -216,7 +216,8 @@ bar {
     mode dock                  # <dock|hide>
     position top               # the position, <top|bottom>
     #font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-    font pango:Droid Sans 10
+    #font pango:Droid Sans 10
+    font pango:PragmataPro 10
     workspace_buttons yes      # <yes|no>
     colors {
         background #002B36
