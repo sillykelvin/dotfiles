@@ -27,8 +27,10 @@ URxvt.transparent:          true
 URxvt.shading:              30
 URxvt.depth:                32
 URxvt.scrollBar:            false
-URxvt.font:                 xft:PragmataPro:size=14
-URxvt.boldFont:             xft:PragmataPro:bold:size=14
+URxvt.font:                 xft:Iosevka:size=14
+URxvt.boldFont:             xft:Iosevka:bold:size=14
+URxvt.inputMethod:          ibus
+URxvt.preeditType:          OverTheSpot
 URxvt.perl-ext-common:      default,clipboard,url-select,keyboard-select
 URxvt.url-select.launcher:  chromium
 URxvt.url-select.underline: true
