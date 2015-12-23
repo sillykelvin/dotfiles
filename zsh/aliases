@@ -10,6 +10,14 @@ alias ll='ls -alF'
 # grep
 alias grep='grep --color=auto'
 
+# ps
+alias pss='ps ux | grep -v grep | grep -iF '
+
+# remake
+alias mk='make'
+alias mc='make clean'
+alias rmk='make clean;make'
+
 # vi
 alias vi=vim
 
@@ -21,6 +29,15 @@ alias cls=clear
 
 # ping
 alias ping='ping -c 3'
+
+# svn
+alias s=svn
+alias ss='svn st'
+alias sst='svn st | grep "^[^?]"'
+alias sup='svn up'
+alias scm='svn ci -m'
+alias sd='svn diff | vim -'
+alias sdf='svn diff'
 
 # git
 alias g=git
