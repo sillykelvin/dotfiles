@@ -1,2 +1,5 @@
 # oh-my-zsh directory
 zsh/oh-my-zsh
+
+# spacemacs directory
+emacs/emacs.d
