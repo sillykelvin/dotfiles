@@ -8,9 +8,13 @@ My personal dotfiles for Archlinux.
 
 : $ cd ~
 : $ git clone https://github.com/kelvinh/dotfiles.git .config
-: $ cd .config/zsh
+: $ cd ~/.config/zsh
 : $ git clone https://github.com/robbyrussell/oh-my-zsh.git
+: $ cd ~/.config/emacs
+: $ git clone https://github.com/syl20bnr/spacemacs.git emacs.d
 : $ cd ~
 : $ ln -s .config/alsa/asoundrc .asoundrc
+: $ ln -s .config/emacs/emacs.d .emacs.d
+: $ ln -s .config/emacs/spacemacs .spacemacs
 : $ ln -s .config/xorg/xinitrc .xinitrc
 : $ ln -s .config/zsh/zshrc .zshrc
