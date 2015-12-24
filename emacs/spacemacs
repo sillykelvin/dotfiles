@@ -243,7 +243,7 @@ It is called immediately after `dotspacemacs/init'.  You are free to put almost 
 user code here.  The exception is org related code, which should be placed in
 `dotspacemacs/user-config'."
 
-  (if (spacemacs/system-is-mswindows)
+  (if (string-equal system-type "windows-nt")
       (progn (add-to-list 'exec-path "~/../../usr/bin")
              (add-to-list 'exec-path "~/../../mingw64/bin")
 
