@@ -3,3 +3,8 @@ zsh/oh-my-zsh
 
 # spacemacs directory
 emacs/emacs.d
+
+# ibus
+ibus/bus
+ibus/rime/*
+!ibus/rime/*.custom.yaml
