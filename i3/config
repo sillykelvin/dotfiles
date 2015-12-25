@@ -3,7 +3,7 @@
 
 #        Author: Kelvin Hu
 #          Date: 01/12/2013
-# Last Modified: 03/17/2015
+# Last Modified: 12/25/2015
 #======================================
 
 #set $mod Mod1
@@ -48,14 +48,10 @@ mode "root" {
     bindsym $ctrl+r  reload; mode "default"
     bindsym Shift+r  restart
 
-    # bindsym $ctrl+f  [class="Firefox"] focus; mode "default"
-    # bindsym f        exec --no-startup-id firefox; mode "default"
     bindsym $ctrl+f  [class="chromium"] focus; mode "default"
     bindsym f        exec --no-startup-id chromium; mode "default"
     bindsym $ctrl+e  [class="Emacs"] focus; mode "default"
     bindsym e        exec --no-startup-id emacs; mode "default"
-    bindsym $ctrl+o  [class="Opera"] focus; mode "default"
-    bindsym o        exec --no-startup-id opera; mode "default"
     bindsym $ctrl+c  exec --no-startup-id urxvtc "$@"; mode "default"
 
     bindsym v        split vertical; mode "default"
