@@ -16,5 +16,6 @@ My personal dotfiles for Archlinux.
 : $ ln -s .config/alsa/asoundrc .asoundrc
 : $ ln -s .config/emacs/emacs.d .emacs.d
 : $ ln -s .config/emacs/spacemacs .spacemacs
+: $ ln -s .config/tmux/tmux.conf .tmux.conf
 : $ ln -s .config/xorg/xinitrc .xinitrc
 : $ ln -s .config/zsh/zshrc .zshrc
