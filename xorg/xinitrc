@@ -34,8 +34,8 @@ setxkbmap -option terminate:ctrl_alt_bksp
 #
 # Load resources and modmap
 #
-resources=$XDG_CONFIG_HOME/xorg/Xresources
-modmap=$XDG_CONFIG_HOME/xorg/Xmodmap
+resources=$HOME/.config/xorg/Xresources
+modmap=$HOME/.config/xorg/Xmodmap
 
 [[ -f $resources ]] && xrdb -merge $resources
 [[ -f $modmap ]] && xmodmap $modmap
