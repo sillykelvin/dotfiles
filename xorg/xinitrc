@@ -49,6 +49,13 @@ urxvtd -q -o -f &
 
 
 #
+# Show battery icon
+#
+cbatticon 0 &
+cbatticon 1 &
+
+
+#
 # Start window manager
 #
 exec i3
