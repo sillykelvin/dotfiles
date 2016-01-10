@@ -221,3 +221,6 @@ bar {
         statusline #839496
     }
 }
+
+# Auto start a urxvt client
+exec_always --no-startup-id urxvtc
