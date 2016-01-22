@@ -258,7 +258,12 @@ in `dotspacemacs/user-config'."
 
   (setq user-full-name "Kelvin Hu")
   (setq user-mail-address "ini.kelvin@gmail.com")
+
+  ;; frame title, much more informative than the default one
   (setq frame-title-format '(buffer-file-name "%f" (dired-directory dired-directory "%b")))
+
+  ;; C/C++ formatting style
+  (setq c-default-style "stroustrup")
 
   (if (string-equal system-type "windows-nt")
       (progn (add-to-list 'exec-path "~/../../usr/bin")
@@ -286,6 +291,9 @@ layers configuration. You are free to put any user code."
   (dolist (charset '(kana han cjk-misc bopomofo))
     (set-fontset-font (frame-parameter nil 'font) charset
                       (font-spec :family "Microsoft Yahei" :size 16)))
+
+  ;; do NOT truncate lines under org mode
+  (spacemacs/add-to-hook 'org-mode-hook '((lambda () (setq truncate-lines nil))))
 
   (setq org-tags-column -80)
   (setq org-directory "~/devel/notes/org")
