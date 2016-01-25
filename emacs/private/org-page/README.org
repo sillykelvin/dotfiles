@@ -1,0 +1,41 @@
+#+TITLE: Org-page layer
+#+HTML_HEAD_EXTRA: <link rel="stylesheet" type="text/css" href="../css/readtheorg.css" />
+
+* Table of Contents                                        :TOC_4_org:noexport:
+ - [[Description][Description]]
+ - [[Install][Install]]
+ - [[Configuration][Configuration]]
+ - [[Key bindings][Key bindings]]
+
+* Description
+This layer brings static site generator: [[https://github.com/kelvinh/org-page][org-page]] to spacemacs.
+
+* Install
+To use this configuration layer, add it to your =~/.spacemacs=. You will need to
+add =org-page= to the existing =dotspacemas-configuration-layers= list in this
+file.
+
+#+begin_src emacs-lisp
+  (setq-default dotspacemacs-configuration-layers '(org-page))
+#+end_src
+
+* Configuration
+Org-page requires some parameters to work, configure the following variables
+in function =dotspacemacs/user-config=:
+
+#+BEGIN_SRC emacs-lisp
+  (setq op/repository-directory "path/to/your/org/repository")
+  (setq op/site-domain "http://your.personal.site.com/")
+#+END_SRC
+
+However, this is the minimal configuration that can make org-page work, to
+release the customization power of org-page, please refer to org-page's
+[[https://github.com/kelvinh/org-page/blob/master/doc/quick-guide.org][quick guide]].
+
+* Key bindings
+
+| Key Binding   | Description                                |
+|---------------+--------------------------------------------|
+| ~<SPC> a a n~ | start a new post                           |
+| ~<SPC> a a p~ | do publication                             |
+| ~<SPC> a a s~ | do publication and preview site in browser |
