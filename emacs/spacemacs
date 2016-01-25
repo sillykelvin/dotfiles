@@ -50,7 +50,7 @@ values."
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
-     spell-checking
+     ;; spell-checking
      syntax-checking
      version-control
      )
@@ -262,6 +262,11 @@ in `dotspacemacs/user-config'."
 
   ;; frame title, much more informative than the default one
   (setq frame-title-format '(buffer-file-name "%f" (dired-directory dired-directory "%b")))
+
+  ;; spacemacs sometimes will hang at startup, refer to:
+  ;; https://github.com/syl20bnr/spacemacs/blob/develop/doc/FAQ.org#why-is-spacemacs-hanging-on-startup
+  (setq tramp-ssh-controlmaster-options
+        "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
 
   ;; C/C++ formatting style
   (setq c-default-style "stroustrup")
