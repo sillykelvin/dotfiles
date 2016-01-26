@@ -46,7 +46,7 @@ values."
      org-page
      (ranger :variables
              ranger-show-preview t)
-     semantic
+     ;; semantic
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
