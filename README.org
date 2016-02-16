@@ -20,3 +20,4 @@ My personal dotfiles for Archlinux.
 : $ ln -s .config/xorg/xinitrc .xinitrc
 : $ ln -s .config/zsh/zprofile .zprofile
 : $ ln -s .config/zsh/zshrc .zshrc
+: $ ln -s .config/git/gitconfig .gitconfig
