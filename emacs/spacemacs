@@ -303,6 +303,7 @@ layers configuration. You are free to put any user code."
     ;; do NOT truncate lines under org mode
     (spacemacs/add-to-hook 'org-mode-hook '((lambda () (setq truncate-lines nil))))
 
+    (setq org-bullets-bullet-list '("●" "◆" "▶" "◇"))
     (setq org-tags-column -80)
     (setq org-directory "~/devel/notes/org")
     (setq org-agenda-files '("~/devel/notes/org"))
