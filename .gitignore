@@ -4,7 +4,19 @@ zsh/oh-my-zsh
 # spacemacs directory
 emacs/emacs.d
 
+# qtcreator
+QtProject.conf
+
 # ibus
 ibus/bus
 ibus/rime/*
 !ibus/rime/*.custom.yaml
+
+# misc directories
+chromium
+dconf
+gtk-2.0
+gtk-3.0
+menus
+ranger
+systemd
