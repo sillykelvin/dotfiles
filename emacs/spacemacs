@@ -41,6 +41,7 @@ values."
      games
      git
      gtags
+     javascript
      markdown
      org
      org-page
@@ -270,6 +271,10 @@ in `dotspacemacs/user-config'."
 
   ;; C/C++ formatting style
   (setq c-default-style "stroustrup")
+
+  ;; javascript
+  ;;(setq-default js2-basic-offset 4)
+  ;;(setq-default js2-indent-level 4)
 
   (if (string-equal system-type "windows-nt")
       (progn (add-to-list 'exec-path "~/../../usr/bin")
