@@ -26,7 +26,10 @@
     ;; :defer t
     :config
     (progn
-      (evil-vimish-fold-mode 1))))
+      ;; do NOT enable this currently, it conflicts with
+      ;; evil's default folding functions
+      ;; (evil-vimish-fold-mode 1)
+      )))
 
 (defun sk/init-protobuf-mode ()
   (use-package protobuf-mode
