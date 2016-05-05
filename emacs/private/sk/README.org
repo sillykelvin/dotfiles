@@ -1,0 +1,26 @@
+#+TITLE: sk layer
+#+HTML_HEAD_EXTRA: <link rel="stylesheet" type="text/css" href="../css/readtheorg.css" />
+
+* Table of Contents                                        :TOC_4_org:noexport:
+ - [[Description][Description]]
+ - [[Install][Install]]
+ - [[Key bindings][Key bindings]]
+
+* Description
+This layer is my personal additional configurations, include:
+
+- create/delete fold manually with =evil-vimish-fold= and =vimish-fold=
+- open =.c= files with =c++-mode=
+- open =.proto= files with =protobuf-mode=
+
+* Install
+To use this contribution add it to your =~/.spacemacs=. You will need to
+add =sk= to the existing =dotspacemacs-configuration-layers= list in this
+file.
+
+#+begin_src emacs-lisp
+  (setq-default dotspacemacs-configuration-layers '(sk))
+#+end_src
+
+* Key bindings
+N/A
