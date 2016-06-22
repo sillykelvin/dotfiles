@@ -264,6 +264,9 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (setq user-full-name "Kelvin Hu")
   (setq user-mail-address "ini.kelvin@gmail.com")
 
+  ;; enable caching to speed up projectile
+  (setq projectile-enable-caching t)
+
   ;; frame title, much more informative than the default one
   (setq frame-title-format '(buffer-file-name "%f" (dired-directory dired-directory "%b")))
 
