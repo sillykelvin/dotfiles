@@ -126,7 +126,7 @@ values."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
-   dotspacemacs-default-font '("PragmataPro"
+   dotspacemacs-default-font '("PragmataPro Mono"
                                :size 16
                                :weight normal
                                :width normal
@@ -304,7 +304,7 @@ layers configuration. You are free to put any user code."
   (setq powerline-default-separator 'arrow)
 
   (set-face-attribute 'default nil :font
-                      (format "%s:pixelsize=%d" "PragmataPro" 16))
+                      (format "%s:pixelsize=%d" "PragmataPro Mono" 16))
   (dolist (charset '(kana han cjk-misc bopomofo))
     (set-fontset-font (frame-parameter nil 'font) charset
                       (font-spec :family "Microsoft Yahei" :size 16)))
