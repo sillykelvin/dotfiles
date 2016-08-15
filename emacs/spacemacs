@@ -282,6 +282,9 @@ before packages are loaded. If you are unsure, you should try in setting them in
   ;;(setq-default js2-basic-offset 4)
   ;;(setq-default js2-indent-level 4)
 
+  ;; count underscore as part of word
+  (add-hook 'c-mode-common-hook #'(lambda () (modify-syntax-entry ?_ "w")))
+
   (if (string-equal system-type "windows-nt")
       (progn (add-to-list 'exec-path "~/../../usr/bin")
              (add-to-list 'exec-path "~/../../mingw64/bin")
@@ -289,11 +292,22 @@ before packages are loaded. If you are unsure, you should try in setting them in
              (require 'server)
              (defun server-ensure-safe-dir (dir) "Noop" t)
 
-             (setq url-proxy-services '(("http" . "web-proxy.oa.com:8080")
-                                        ("https" . "web-proxy.oa.com:8080")))))
+             (setq url-proxy-services '(("http" . "dev-proxy.oa.com:8080")
+                                        ("https" . "dev-proxy.oa.com:8080")))))
 
   (setq solarized-use-variable-pitch nil
         solarized-scale-org-headlines nil)
+
+  (custom-set-faces
+   '(org-level-1 ((t (:inherit outline-1 :height 1.0 ))))
+   '(org-level-2 ((t (:inherit outline-2 :height 1.0 ))))
+   '(org-level-3 ((t (:inherit outline-3 :height 1.0 ))))
+   '(org-level-4 ((t (:inherit outline-3 :height 1.0 ))))
+   '(org-level-5 ((t (:inherit outline-3 :height 1.0 ))))
+   '(org-level-6 ((t (:inherit outline-3 :height 1.0 ))))
+   '(org-level-7 ((t (:inherit outline-3 :height 1.0 ))))
+   '(org-level-8 ((t (:inherit outline-3 :height 1.0 ))))
+   )
   )
 
 (defun dotspacemacs/user-config ()
