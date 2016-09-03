@@ -3,9 +3,9 @@
 !
 
 !
-! Solarized color scheme
+! color scheme
 !
-#include "colors/solarized-dark"
+#include "colors/molokai"
 
 
 !
