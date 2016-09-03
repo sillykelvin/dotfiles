@@ -20,3 +20,17 @@ gtk-3.0
 menus
 ranger
 systemd
+mc
+unity
+compiz-1
+gedit
+nautilus
+evolution
+libaccounts-glib
+libreoffice
+pulse
+
+#misc files
+user-dirs.dirs
+user-dirs.locale
+mimeapps.list
