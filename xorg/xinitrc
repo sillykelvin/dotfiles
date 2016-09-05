@@ -19,6 +19,21 @@ fi
 
 
 #
+# export extra PATHs
+#
+for f in /opt/*; do
+    if [ `basename $f` != lost+found ]; then
+        if [ -d $f ]; then
+            highest=`ls $f | cat | sort -V | tail -n1`
+            if [ $highest != "" ]; then
+                export PATH=$PATH:$f/$highest/bin
+            fi
+        fi
+    fi
+done
+
+
+#
 # ibus input method
 #
 export GTK_IM_MODULE=ibus
