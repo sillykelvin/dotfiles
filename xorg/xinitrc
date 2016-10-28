@@ -63,6 +63,13 @@ modmap=$HOME/.config/xorg/Xmodmap
 #
 xmodmap -e "pointer = 3 2 1 4 5"
 
+#
+# Switch key(`~) and key(\|), make the Filco
+# Minila Air keyboard consistent with HHKB
+#
+xmodmap -e "keycode 49 = backslash bar"
+xmodmap -e "keycode 51 = grave asciitilde"
+
 
 #
 # Some daemon processes
