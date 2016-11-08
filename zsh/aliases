@@ -3,6 +3,14 @@
 #
 
 
+# cd
+alias .0='cd .'
+alias .1='cd ..'
+alias .2='cd ../..'
+alias .3='cd ../../..'
+alias .4='cd ../../../..'
+alias .5='cd ../../../../..'
+
 # ls
 alias ls='LC_COLLATE=C ls --color=auto --group-directories-first'
 alias ll='ls -alF'
@@ -14,9 +22,12 @@ alias grep='grep --color=auto'
 alias pss='ps ux | grep -v grep | grep -iF '
 
 # remake
-alias mk='make'
-alias mc='make clean'
-alias rmk='make clean;make'
+alias mk='if [ -f build.ninja ]; then ninja; else make; fi'
+alias mc='if [ -f build.ninja ]; then ninja clean; else make clean; fi'
+alias rmk='mc;mk'
+#alias mk='make'
+#alias mc='make clean'
+#alias rmk='make clean;make'
 
 # vi
 alias vi=vim
@@ -29,6 +40,10 @@ alias cls=clear
 
 # ping
 alias ping='ping -c 3'
+
+# proxychains
+alias fkgfw='proxychains4'
+alias fk='proxychains4 -q'
 
 # svn
 alias s=svn
