@@ -21,6 +21,10 @@ fi
 #
 # export extra PATHs
 #
+if [ -d /opt/bin ]; then
+    export PATH=$PATH:/opt/bin
+fi
+
 for f in /opt/*; do
     if [ `basename $f` != lost+found ]; then
         if [ -d $f ]; then
