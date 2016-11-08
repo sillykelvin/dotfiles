@@ -74,8 +74,8 @@ source $ZSH/oh-my-zsh.sh
 
 # History file configuration
 HISTFILE=$XDG_CACHE_HOME/zsh/zsh_history
-HISTSIZE=700
-SAVEHIST=700
+HISTSIZE=7000
+SAVEHIST=7000
 
 # Auto change directory if a path inputted instead of a command
 setopt autocd
