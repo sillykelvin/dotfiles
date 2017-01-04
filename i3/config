@@ -50,7 +50,7 @@ mode "root" {
     bindsym $ctrl+r  reload; mode "default"
     bindsym Shift+r  restart
 
-    bindsym $ctrl+f  [class="chromium"] focus; mode "default"
+    bindsym $ctrl+f  [class="Chromium-browser"] focus; mode "default"
     bindsym f        exec --no-startup-id chromium-browser; mode "default"
     bindsym $ctrl+e  [class="Emacs"] focus; mode "default"
     bindsym e        exec --no-startup-id emacs; mode "default"
