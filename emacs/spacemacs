@@ -342,15 +342,8 @@ before packages are loaded. If you are unsure, you should try in setting them in
   ;; count underscore as part of word
   (add-hook 'c-mode-common-hook #'(lambda () (modify-syntax-entry ?_ "w")))
 
-  (if (string-equal system-type "windows-nt")
-      (progn (add-to-list 'exec-path "~/../../usr/bin")
-             (add-to-list 'exec-path "~/../../mingw64/bin")
-
-             (require 'server)
-             (defun server-ensure-safe-dir (dir) "Noop" t)
-
-             (setq url-proxy-services '(("http" . "dev-proxy.oa.com:8080")
-                                        ("https" . "dev-proxy.oa.com:8080")))))
+  (setq url-gateway-method 'socks)
+  (setq socks-server '("Default server" "127.0.0.1" 8080 5))
 
   (setq solarized-use-variable-pitch nil
         solarized-scale-org-headlines nil)
