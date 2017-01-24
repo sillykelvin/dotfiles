@@ -51,7 +51,6 @@ alias ss='svn st'
 alias sst='svn st | grep "^[^?]"'
 alias sup='svn up'
 alias scm='svn ci -m'
-alias sd='svn diff | vim -'
 alias sdf='svn diff'
 
 # git
