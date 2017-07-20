@@ -22,12 +22,11 @@ alias grep='grep --color=auto'
 alias pss='ps ux | grep -v grep | grep -iF '
 
 # remake
-alias mk='if [ -f build.ninja ]; then ninja; else make; fi'
-alias mc='if [ -f build.ninja ]; then ninja clean; else make clean; fi'
-alias rmk='mc;mk'
-#alias mk='make'
-#alias mc='make clean'
-#alias rmk='make clean;make'
+alias mk='make'
+alias mk4='make -j4'
+alias mk8='make -j8'
+alias mc='make clean'
+alias rmk='make clean;make'
 
 # vi
 alias vi=vim
