@@ -31,13 +31,11 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
-     html
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     helm
      (auto-completion :variables
                       auto-completion-return-key-behavior 'complete
                       auto-completion-tab-key-behavior 'cycle
@@ -55,6 +53,8 @@ values."
      games
      git
      gtags
+     helm
+     html
      javascript
      lua
      markdown
@@ -67,6 +67,7 @@ values."
             shell-default-height 30
             shell-default-position 'bottom)
      sk
+     sql
      ;; spell-checking
      syntax-checking
      version-control
@@ -149,6 +150,7 @@ values."
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(monokai
+                         doom-one
                          solarized-dark
                          spacemacs-dark
                          spacemacs-light
