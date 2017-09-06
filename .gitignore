@@ -18,8 +18,11 @@ ibus/rime/*
 # misc directories
 chromium
 dconf
+enchant
+eog
 gtk-2.0
 gtk-3.0
+htop
 menus
 ranger
 systemd
@@ -33,15 +36,20 @@ libaccounts-glib
 libreoffice
 pulse
 rabbitvcs
+unity3d
+electronic-wechat
+Code
+Electron
+GitKraken
+Genymobile
 MonoDevelop
 Unity
-unity3d
 VirtualBox
-Electron
-electronic-wechat
-Genymobile
+Whatever
+Zeal
 
 #misc files
 user-dirs.dirs
 user-dirs.locale
 mimeapps.list
+Trolltech.conf
