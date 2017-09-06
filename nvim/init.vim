@@ -106,6 +106,8 @@ syntax on " enable syntax highlight and completion
     nnoremap <C-h> <C-w>h
     nnoremap <C-l> <C-w>l
 
+    nnoremap <Leader>w :w<CR>
+
     nnoremap j gj
     nnoremap k gk
 
@@ -148,6 +150,10 @@ syntax on " enable syntax highlight and completion
     " tabular {{{
         nnoremap <Leader>= :Tabularize /=<CR>
         vnoremap <Leader>= :Tabularize /=<CR>
+    " }}}
+
+    " fugitive {{{
+        nnoremap <Leader>gs :Gstatus<CR>
     " }}}
 
     " commentary {{{
