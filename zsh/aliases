@@ -27,9 +27,11 @@ alias mk4='make -j4'
 alias mk8='make -j8'
 alias mc='make clean'
 alias rmk='make clean;make'
+alias nj='ninja -v'
 
 # vi
-alias vi=vim
+alias vi=nvim
+alias vim=nvim
 
 # rm directories
 alias rd='rm -rf'
