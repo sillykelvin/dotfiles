@@ -23,14 +23,17 @@ let mapleader = ','
     Plugin 'mileszs/ack.vim'                  " better grep tool, using the silver searcher
     Plugin 'junegunn/fzf'                     " fuzzy finder
     Plugin 'junegunn/fzf.vim'                 " vim plugin fuzzy finder
+    Plugin 'majutsushi/tagbar'                " class outline viewer
+    Plugin 'lyuts/vim-rtags'                  " vim plugin for rtags
+    Plugin 'scrooloose/syntastic'             " syntax checking
     Plugin 'Valloric/YouCompleteMe'           " code completion engine, using libclang for C/C++
     Plugin 'scrooloose/nerdtree'              " filesystem tree in vim
     Plugin 'Xuyuanp/nerdtree-git-plugin'      " show git file status in NERDTree
     Plugin 'airblade/vim-gitgutter'           " show git file change when editing
     Plugin 'flazz/vim-colorschemes'           " various color schemes
     Plugin 'tomasr/molokai'                   " the famous molokai theme
-    Plugin 'altercation/vim-colors-solarized' " the famous solarized theme
     Plugin 'joshdick/onedark.vim'             " the great onedark theme
+    Plugin 'altercation/vim-colors-solarized' " the famous solarized theme
     Plugin 'sheerun/vim-polyglot'             " better syntax highlighting
     Plugin 'vim-airline/vim-airline'          " better tabline and statusline
     Plugin 'vim-airline/vim-airline-themes'   " themes for airline
@@ -90,7 +93,9 @@ syntax on " enable syntax highlight and completion
     set list                                                        " highlight problematic whitespace
     " set listchars=tab:›\ ,trail:•,extends:#,nbsp:*                " change style of problematic whitespace
     set listchars=tab:>-,trail:-,extends:#,nbsp:*                   " change style of problematic whitespace
-    set wildignore+=*.o,*.obj,.svn,.git                             " update ignore lists
+    set wildignore+=*.o,*.obj                                       " update ignore lists, C/C++ obj files
+    set wildignore+=.svn,.git                                       " update ignore lists, svn/git files
+    set wildignore+=*.pb.h,*.pb.cc                                  " update ignore lists, protobuf generated files
     set autoindent                                                  " autoindenting
     set smartindent                                                 " smart autoindenting when starting a new line
     set tabstop=4                                                   " number of spaces that a tab counts for
@@ -107,12 +112,17 @@ syntax on " enable syntax highlight and completion
     nnoremap <C-l> <C-w>l
 
     nnoremap <Leader>w :w<CR>
+    nnoremap <Leader><Space> :noh<CR>
 
     nnoremap j gj
     nnoremap k gk
 
     vnoremap < <gv
     vnoremap > >gv
+
+    " Move visual block
+    vnoremap J :m '>+1<CR>gv=gv
+    vnoremap K :m '<-2<CR>gv=gv
 
     " copy/paste from/to system clipboard
     vnoremap <Leader>y  "+y
@@ -152,8 +162,43 @@ syntax on " enable syntax highlight and completion
         vnoremap <Leader>= :Tabularize /=<CR>
     " }}}
 
+    " tagbar {{{
+        nnoremap <Leader>t :TagbarToggle<CR>
+    " }}}
+
+    " rtags {{{
+        let g:rtagsRcCmd = 'rc --socket-file=/home/kelvin/.rtags/rdm.socket'
+        let g:rtagsUseDefaultMappings = 0
+        let g:rtagsMinCharsForCommandCompletion = 1
+        let g:rtagsLog = '/home/kelvin/.rtags/vim-rtags.log'
+
+        noremap <Leader>ri :call rtags#SymbolInfo()<CR>
+        noremap <Leader>rj :call rtags#JumpTo(g:SAME_WINDOW)<CR>
+        noremap <Leader>rJ :call rtags#JumpTo(g:SAME_WINDOW, { '--declaration-only' : '' })<CR>
+        noremap <Leader>rS :call rtags#JumpTo(g:H_SPLIT)<CR>
+        noremap <Leader>rV :call rtags#JumpTo(g:V_SPLIT)<CR>
+        noremap <Leader>rT :call rtags#JumpTo(g:NEW_TAB)<CR>
+        noremap <Leader>rp :call rtags#JumpToParent()<CR>
+        noremap <Leader>rf :call rtags#FindRefs()<CR>
+        noremap <Leader>rn :call rtags#FindRefsByName(input("Pattern? ", "", "customlist,rtags#CompleteSymbols"))<CR>
+        noremap <Leader>rs :call rtags#FindSymbols(input("Pattern? ", "", "customlist,rtags#CompleteSymbols"))<CR>
+        noremap <Leader>rr :call rtags#ReindexFile()<CR>
+        noremap <Leader>rl :call rtags#ProjectList()<CR>
+        noremap <Leader>rw :call rtags#RenameSymbolUnderCursor()<CR>
+        noremap <Leader>rv :call rtags#FindVirtuals()<CR>
+        noremap <Leader>rb :call rtags#JumpBack()<CR>
+        noremap <Leader>rC :call rtags#FindSuperClasses()<CR>
+        noremap <Leader>rc :call rtags#FindSubClasses()<CR>
+        noremap <Leader>rd :call rtags#Diagnostics()<CR>
+    " }}}
+
     " fugitive {{{
+        nnoremap <Leader>ga :Gwrite<CR>
         nnoremap <Leader>gs :Gstatus<CR>
+        nnoremap <Leader>gc :Gcommit<CR>
+        nnoremap <Leader>gp :Gpush<CR>
+        nnoremap <Leader>gl :Gpull<CR>
+        nnoremap <Leader>gd :Gvdiff<CR>
     " }}}
 
     " commentary {{{
@@ -173,7 +218,22 @@ syntax on " enable syntax highlight and completion
         let delimitMate_expand_cr = 1
     " }}}
 
+    " syntastic {{{
+        let g:syntastic_error_symbol = '✗'
+        let g:syntastic_warning_symbol = '⚠'
+        let g:syntastic_style_error_symbol = '✗'
+        let g:syntastic_style_warning_symbol = '⚠'
+        let g:syntastic_auto_loc_list = 1
+        let g:syntastic_aggregate_errors = 1
+        let g:syntastic_always_populate_loc_list = 1
+    " }}}
+
     " YCM {{{
+        let g:ycm_always_populate_location_list = 1
+        let g:ycm_autoclose_preview_window_after_insertion = 1
+        let g:ycm_autoclose_preview_window_after_completion = 0
+        let g:ycm_collect_identifiers_from_tags_files = 1
+        let g:ycm_collect_identifiers_from_comments_and_strings = 1
         nmap <A-.> :YcmCompleter GoTo<CR>
     " }}}
 
@@ -187,6 +247,7 @@ syntax on " enable syntax highlight and completion
     " }}}
 
     " fzf {{{
+        let $FZF_DEFAULT_COMMAND = 'ag -g ""'
         let g:fzf_command_prefix = 'Fzf'
         nnoremap <Leader>ff :FzfFiles<CR>
         nnoremap <Leader>fb :FzfBuffers<CR>
@@ -219,6 +280,7 @@ syntax on " enable syntax highlight and completion
 
     " airline {{{
         let g:airline_powerline_fonts = 1
+        let g:airline_skip_empty_sections = 1
         let g:airline#extensions#ycm#enabled = 1        " YCM
         let g:airline#extensions#hunks#enabled = 1      " gitgutter
         let g:airline#extensions#tagbar#enabled = 1     " tagbar
