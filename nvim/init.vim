@@ -60,7 +60,7 @@ syntax on " enable syntax highlight and completion
     set ignorecase                                                  " ignore case when searching
     set smartcase                                                   " do not ignore case when upper case characters exist in search pattern
     set history=1000                                                " maximum history count of ':' commands and search patterns
-    set spell                                                       " set spell checking on
+    " set spell                                                     " set spell checking on
     set nobackup                                                    " don't backup
     set nowritebackup                                               " don't do writable backup
     set noswapfile                                                  " don't create .swp file
