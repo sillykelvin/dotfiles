@@ -72,7 +72,7 @@ syntax on " enable syntax highlight and completion
     set backspace=indent,eol,start                                  " more powerful backspacing
     set t_Co=256                                                    " explicitly tell vim that the terminal has 256 colors
     set showmode                                                    " show mode on status line
-    set ruler                                                       " show line and column numer of current position
+    set ruler                                                       " show line and column number of current position
     set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%)              " a ruler on steroids
     set number                                                      " show line numbers
     " set relativenumber                                            " show relative line number
