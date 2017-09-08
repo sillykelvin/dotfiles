@@ -142,8 +142,14 @@ syntax on " enable syntax highlight and completion
     autocmd BufWinLeave * silent! mkview     " make vim save view (state) (folds, cursor, etc)
     autocmd BufWinEnter * silent! loadview   " make vim load view (state) (folds, cursor, etc)
 
+    autocmd BufRead,BufNewFile * setlocal signcolumn=yes
+    autocmd FileType tagbar,nerdtree setlocal signcolumn=no
+
     autocmd WinLeave * set nocursorline nocursorcolumn " disable highlighting when leaving
     autocmd WinEnter * set cursorline cursorcolumn     " enable highlighting when leaving
+
+    autocmd BufRead,BufNewFile *.proto setfiletype proto
+    autocmd FileType proto setlocal foldmarker={,} foldlevel=0 foldmethod=marker
 
     autocmd FileType xml,html setlocal matchpairs+=<:>
 
@@ -160,6 +166,8 @@ syntax on " enable syntax highlight and completion
     " tabular {{{
         nnoremap <Leader>= :Tabularize /=<CR>
         vnoremap <Leader>= :Tabularize /=<CR>
+        nnoremap <Leader>/ :Tabularize /\/\/<CR>
+        vnoremap <Leader>/ :Tabularize /\/\/<CR>
     " }}}
 
     " tagbar {{{
@@ -168,8 +176,10 @@ syntax on " enable syntax highlight and completion
 
     " rtags {{{
         let g:rtagsRcCmd = 'rc --socket-file=/home/kelvin/.rtags/rdm.socket'
+        let g:rtagsUseLocationList = 0
         let g:rtagsUseDefaultMappings = 0
         let g:rtagsMinCharsForCommandCompletion = 1
+        let g:rtagsMaxSearchResultWindowHeight = 20
         let g:rtagsLog = '/home/kelvin/.rtags/vim-rtags.log'
 
         noremap <Leader>ri :call rtags#SymbolInfo()<CR>
