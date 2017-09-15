@@ -93,6 +93,8 @@ syntax on " enable syntax highlight and completion
     set list                                                        " highlight problematic whitespace
     " set listchars=tab:›\ ,trail:•,extends:#,nbsp:*                " change style of problematic whitespace
     set listchars=tab:>-,trail:-,extends:#,nbsp:*                   " change style of problematic whitespace
+    set wildmenu                                                    " enhance command auto-completion
+    set wildmode=longest:full,full                                  " command auto-completion list
     set wildignore+=*.o,*.obj                                       " update ignore lists, C/C++ obj files
     set wildignore+=.svn,.git                                       " update ignore lists, svn/git files
     set wildignore+=*.pb.h,*.pb.cc                                  " update ignore lists, protobuf generated files
@@ -110,6 +112,9 @@ syntax on " enable syntax highlight and completion
     nnoremap <C-k> <C-w>k
     nnoremap <C-h> <C-w>h
     nnoremap <C-l> <C-w>l
+
+    noremap <Leader>h :<C-u>split<CR>
+    noremap <Leader>v :<C-u>vsplit<CR>
 
     nnoremap <Leader>w :w<CR>
     nnoremap <Leader><Space> :noh<CR>
@@ -253,7 +258,8 @@ syntax on " enable syntax highlight and completion
 
     " ack.vim {{{
         let g:ackprg = 'ag --vimgrep'
-        nnoremap <Leader>a :Ack!<Space>
+        nnoremap <Leader>aa :Ack!<Space>
+        nnoremap <Leader>ac :Ack!<CR>
     " }}}
 
     " fzf {{{
