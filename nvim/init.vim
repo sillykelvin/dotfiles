@@ -45,9 +45,9 @@ filetype plugin indent on " required
 syntax on " enable syntax highlight and completion
 
 " color scheme {{{
-    set background=dark
-    color solarized
-    " colorscheme onedark
+    " set background=dark
+    " color solarized
+    colorscheme onedark
     " colorscheme wombat
     " colorscheme molokai
 " }}}
