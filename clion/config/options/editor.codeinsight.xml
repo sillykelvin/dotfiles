@@ -1,0 +1,13 @@
+<application>
+  <component name="CodeFoldingSettings">
+    <option name="COLLAPSE_DOC_COMMENTS" value="true" />
+  </component>
+  <component name="CodeInsightSettings">
+    <option name="SHOW_PARAMETER_NAME_HINTS_ON_COMPLETION" value="true" />
+    <option name="PARAMETER_INFO_DELAY" value="10" />
+    <option name="COMPLETION_CASE_SENSITIVE" value="2" />
+    <option name="SHOW_FULL_SIGNATURES_IN_PARAMETER_INFO" value="true" />
+    <option name="HIGHLIGHT_SCOPE" value="true" />
+  </component>
+  <component name="DaemonCodeAnalyzerSettings" profile="sk_inspection" />
+</application>
