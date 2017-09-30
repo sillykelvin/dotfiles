@@ -26,6 +26,7 @@ let mapleader = ','
     Plugin 'majutsushi/tagbar'                " class outline viewer
     Plugin 'lyuts/vim-rtags'                  " vim plugin for rtags
     Plugin 'scrooloose/syntastic'             " syntax checking
+    Plugin 'neomake/neomake'                  " run programs async
     Plugin 'Valloric/YouCompleteMe'           " code completion engine, using libclang for C/C++
     Plugin 'scrooloose/nerdtree'              " filesystem tree in vim
     Plugin 'Xuyuanp/nerdtree-git-plugin'      " show git file status in NERDTree
@@ -205,6 +206,11 @@ syntax on " enable syntax highlight and completion
         noremap <Leader>rC :call rtags#FindSuperClasses()<CR>
         noremap <Leader>rc :call rtags#FindSubClasses()<CR>
         noremap <Leader>rd :call rtags#Diagnostics()<CR>
+    " }}}
+
+    " neomake {{{
+        let g:neomake_open_list = 2
+        let g:neomake_logfile = '/tmp/neomake.log'
     " }}}
 
     " fugitive {{{
