@@ -25,8 +25,8 @@ let mapleader = ','
     Plugin 'junegunn/fzf.vim'                 " vim plugin fuzzy finder
     Plugin 'majutsushi/tagbar'                " class outline viewer
     Plugin 'lyuts/vim-rtags'                  " vim plugin for rtags
-    Plugin 'scrooloose/syntastic'             " syntax checking
-    Plugin 'neomake/neomake'                  " run programs async
+    " Plugin 'w0rp/ale'                         " asynchronous lint engine
+    " Plugin 'neomake/neomake'                  " run programs async
     Plugin 'Valloric/YouCompleteMe'           " code completion engine, using libclang for C/C++
     Plugin 'scrooloose/nerdtree'              " filesystem tree in vim
     Plugin 'Xuyuanp/nerdtree-git-plugin'      " show git file status in NERDTree
@@ -208,10 +208,10 @@ syntax on " enable syntax highlight and completion
         noremap <Leader>rd :call rtags#Diagnostics()<CR>
     " }}}
 
-    " neomake {{{
-        let g:neomake_open_list = 2
-        let g:neomake_logfile = '/tmp/neomake.log'
-    " }}}
+    " " neomake {{{
+    "     let g:neomake_open_list = 2
+    "     let g:neomake_logfile = '/tmp/neomake.log'
+    " " }}}
 
     " fugitive {{{
         nnoremap <Leader>ga :Gwrite<CR>
@@ -239,14 +239,17 @@ syntax on " enable syntax highlight and completion
         let delimitMate_expand_cr = 1
     " }}}
 
-    " syntastic {{{
-        let g:syntastic_error_symbol = '✗'
-        let g:syntastic_warning_symbol = '⚠'
-        let g:syntastic_style_error_symbol = '✗'
-        let g:syntastic_style_warning_symbol = '⚠'
-        let g:syntastic_auto_loc_list = 1
-        let g:syntastic_aggregate_errors = 1
-        let g:syntastic_always_populate_loc_list = 1
+    " ale {{{
+        " let g:ale_echo_msg_error_str = 'E'
+        " let g:ale_echo_msg_warning_str = 'W'
+        " let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+        " let g:ale_sign_error = '✗'
+        " let g:ale_sign_warning = '⚠'
+        " let g:ale_sign_info = 'I'
+        " let g:ale_sign_style_error = '✗'
+        " let g:ale_sign_warning_warning = '⚠'
+        " let g:ale_sign_column_always = 1
+        " let g:ale_warn_about_trailing_whitespace = 1
     " }}}
 
     " YCM {{{
@@ -256,6 +259,11 @@ syntax on " enable syntax highlight and completion
         let g:ycm_autoclose_preview_window_after_completion = 0
         let g:ycm_collect_identifiers_from_tags_files = 1
         let g:ycm_collect_identifiers_from_comments_and_strings = 1
+        let g:ycm_show_diagnostics_ui = 1
+        let g:ycm_error_symbol = '✗'
+        let g:ycm_warning_symbol = '⚠'
+        let g:ycm_always_populate_location_list = 1
+
         nmap <A-.> :YcmCompleter GoTo<CR>
     " }}}
 
@@ -304,6 +312,7 @@ syntax on " enable syntax highlight and completion
     " airline {{{
         let g:airline_powerline_fonts = 1
         let g:airline_skip_empty_sections = 1
+        let g:airline#extensions#ale#enabled = 1        " ale
         let g:airline#extensions#ycm#enabled = 1        " YCM
         let g:airline#extensions#hunks#enabled = 1      " gitgutter
         let g:airline#extensions#tagbar#enabled = 1     " tagbar
