@@ -13,6 +13,7 @@ let mapleader = ','
 
     Plugin 'VundleVim/Vundle.vim'             " required
     Plugin 'a.vim'                            " cpp header/source quick switch
+    Plugin 'AndrewRadev/switch.vim'           " predefined text segments switcher
     Plugin 'tpope/vim-fugitive'               " git for vim
     Plugin 'Lokaltog/vim-easymotion'          " better motion control
     Plugin 'tpope/vim-commentary'             " better commenting/uncommenting
@@ -269,6 +270,10 @@ syntax on " enable syntax highlight and completion
 
     " a.vim {{{
         nmap <A-o> :A<CR>
+    " }}}
+
+    " switch.vim {{{
+        nnoremap <Leader>s :Switch<CR>
     " }}}
 
     " ack.vim {{{
