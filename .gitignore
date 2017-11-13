@@ -13,17 +13,23 @@ QtProject.conf
 # clion
 clion/config/clion.key
 clion/config/codestyles/Default.xml
+clion/config/options/debugger.xml
 clion/config/options/dimensions.xml
+clion/config/options/extensionsRootType.xml
 clion/config/options/feature.usage.statistics.xml
+clion/config/options/find.xml
 clion/config/options/images.support.xml
 clion/config/options/options.xml
 clion/config/options/recentProjectDirectories.xml
 clion/config/options/statistics.actions.xml
 clion/config/options/statistics.application.usages.xml
 clion/config/options/statistics.shortcuts.xml
+clion/config/options/statistics.toolbar.clicks.xml
+clion/config/options/stubIndex.xml
 clion/config/options/updates.xml
 clion/config/options/vim_settings.xml
 clion/config/options/window.manager.xml
+clion/config/options/window.state.xml
 clion/config/port
 clion/config/port.lock
 clion/config/plugins
