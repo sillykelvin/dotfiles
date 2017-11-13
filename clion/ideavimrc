@@ -42,8 +42,8 @@ nnoremap <A-l> :action NextTab<CR>
 nnoremap <Leader>eo :action OpenEditorInOppositeTabGroup<CR>
 nnoremap <Leader>em :action MoveEditorToOppositeTabGroup<CR>
 
-" nnoremap <Leader>ff :action GotoFile<CR>
-nnoremap <Leader>ff :action SearchEverywhere<CR>
+" nnoremap <Leader>ff :action SearchEverywhere<CR>
+nnoremap <Leader>ff :action GotoFile<CR>
 nnoremap <Leader>fc :action GotoClass<CR>
 nnoremap <Leader>fb :action Switcher<CR>
 nnoremap <Leader>fd :action CloseContent<CR>
