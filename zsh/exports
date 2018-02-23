@@ -11,3 +11,6 @@ export XDG_DATA_HOME="$HOME/.local/share"
 # ZSH
 export ZSH="$XDG_CONFIG_HOME/zsh/oh-my-zsh"
 export ZSH_COMPDUMP="$XDG_CACHE_HOME/zsh/zcompdump"
+
+# Node Version Manager
+export NVM_DIR="$HOME/.nvm"
