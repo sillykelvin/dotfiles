@@ -22,3 +22,4 @@ My personal dotfiles for Archlinux.
 : $ ln -s .config/zsh/zshrc .zshrc
 : $ ln -s .config/git/gitconfig .gitconfig
 : $ ln -s .config/clion/ideavimrc .ideavimrc
+: $ ln -s .config/tern/tern-config .tern-config

@@ -1,0 +1,14 @@
+{
+    "libs": [
+        "browser",
+        "jquery"
+    ],
+
+    "plugins": {
+        "node": {}
+    },
+
+    "dontLoad": [
+        "node_modules/**"
+    ]
+}
