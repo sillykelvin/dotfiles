@@ -1,13 +1,11 @@
 CVS
 HtmlTools
 JSIntentionPowerPack
-JavaScript
 JavaScriptDebugger
 PerforceDirectPlugin
 TFS
 XPathView
 com.intellij.clion-python
-com.intellij.css
 com.intellij.tasks
 com.intellij.tasks.timeTracking
 com.jetbrains.plugins.webDeployment
