@@ -23,6 +23,7 @@ alias pss='ps ux | grep -v grep | grep -iF '
 
 # remake
 alias mk='make'
+alias mk2='make -j2'
 alias mk4='make -j4'
 alias mk8='make -j8'
 alias mc='make clean'
