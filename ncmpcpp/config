@@ -11,5 +11,5 @@ visualizer_look = "▋▋"
 # spectrum wave wave_filled ellipse
 visualizer_type = "spectrum"
 
-# "─⊙ " "▃▃▃" "▁▁▁" "▉▉▉" "—▬—"
-progressbar_look = "—▬—"
+# "─⊙ " "▃▃▃" "▁▁▁" "▉▉▉" "—▬—" "─╼ "
+progressbar_look = "─╼ "
