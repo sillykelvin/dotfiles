@@ -8,6 +8,11 @@ My personal dotfiles for Archlinux.
 
 : $ cd ~
 : $ git clone https://github.com/kelvinh/dotfiles.git .config
+: $ cd ~/.config
+: $ git clone https://github.com/creationix/nvm.git nvm
+: $ cd ~/.config/nvm
+: $ git checkout `git describe --abbrev=0 --tags --match "v[0-9]*" $(git rev-list --tags --max-count=1)`
+: $ source nvm.sh
 : $ cd ~/.config/zsh
 : $ git clone https://github.com/robbyrussell/oh-my-zsh.git
 : $ cd ~/.config/emacs

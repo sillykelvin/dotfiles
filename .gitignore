@@ -7,6 +7,9 @@ emacs/emacs.d
 # neovim plugin directory
 nvim/bundle
 
+# nvm directory
+nvm
+
 # qtcreator
 QtProject.conf
 
