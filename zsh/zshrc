@@ -2,6 +2,11 @@
 # ZSH configuration
 #
 
+# Workaround WSL error: "nice(5) failed: operation not permitted"
+unsetopt BG_NICE
+
+# Workaround incorrect WSL directory permission: 0777
+umask 0022
 
 # Environment variables
 source "$HOME/.config/zsh/exports"
