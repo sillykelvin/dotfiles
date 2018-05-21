@@ -6,12 +6,18 @@ emacs/emacs.d
 
 # neovim plugin directory
 nvim/bundle
+nvim/plugged
 
 # nvm directory
 nvm
 
 # qtcreator
 QtProject.conf
+
+# subversion
+subversion/auth
+subversion/servers
+subversion/README.txt
 
 # clion
 clion/config/clion.key
