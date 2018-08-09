@@ -3,48 +3,45 @@
 " }}}
 
 set nocompatible " be iMproved, required
-filetype off     " required
 
 let mapleader = ','
 
+if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
+    silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 " plugins {{{
-    set runtimepath+=~/.config/nvim/bundle/Vundle.vim
-    call vundle#begin('~/.config/nvim/bundle')
+    call plug#begin('~/.config/nvim/plugged')
 
-    Plugin 'VundleVim/Vundle.vim'             " required
-    Plugin 'a.vim'                            " cpp header/source quick switch
-    Plugin 'AndrewRadev/switch.vim'           " predefined text segments switcher
-    Plugin 'tpope/vim-fugitive'               " git for vim
-    Plugin 'Lokaltog/vim-easymotion'          " better motion control
-    Plugin 'tpope/vim-commentary'             " better commenting/uncommenting
-    Plugin 'godlygeek/tabular'                " code alignment
-    Plugin 'sirver/ultisnips'                 " code snippet engine
-    Plugin 'honza/vim-snippets'               " various code snippets
-    Plugin 'raimondi/delimitmate'             " auto insertion of pairs, like {}, () etc
-    Plugin 'mileszs/ack.vim'                  " better grep tool, using the silver searcher
-    Plugin 'junegunn/fzf'                     " fuzzy finder
-    Plugin 'junegunn/fzf.vim'                 " vim plugin fuzzy finder
-    Plugin 'majutsushi/tagbar'                " class outline viewer
-    Plugin 'lyuts/vim-rtags'                  " vim plugin for rtags
-    " Plugin 'w0rp/ale'                         " asynchronous lint engine
-    " Plugin 'neomake/neomake'                  " run programs async
-    Plugin 'Valloric/YouCompleteMe'           " code completion engine, using libclang for C/C++
-    Plugin 'scrooloose/nerdtree'              " filesystem tree in vim
-    Plugin 'Xuyuanp/nerdtree-git-plugin'      " show git file status in NERDTree
-    Plugin 'airblade/vim-gitgutter'           " show git file change when editing
-    Plugin 'flazz/vim-colorschemes'           " various color schemes
-    Plugin 'tomasr/molokai'                   " the famous molokai theme
-    Plugin 'joshdick/onedark.vim'             " the great onedark theme
-    Plugin 'altercation/vim-colors-solarized' " the famous solarized theme
-    Plugin 'sheerun/vim-polyglot'             " better syntax highlighting
-    Plugin 'vim-airline/vim-airline'          " better tabline and statusline
-    Plugin 'vim-airline/vim-airline-themes'   " themes for airline
+    Plug 'vim-scripts/a.vim'                                                " cpp header/source quick switch
+    Plug 'AndrewRadev/switch.vim'                                           " predefined text segments switcher
+    Plug 'tpope/vim-fugitive'                                               " git for vim
+    Plug 'tpope/vim-commentary'                                             " better commenting/uncommenting
+    Plug 'godlygeek/tabular'                                                " code alignment
+    Plug 'sirver/ultisnips'                                                 " code snippet engine
+    Plug 'honza/vim-snippets'                                               " various code snippets
+    Plug 'raimondi/delimitmate'                                             " auto insertion of pairs, like {}, () etc
+    Plug 'mileszs/ack.vim'                                                  " better grep tool, using the silver searcher
+    Plug 'junegunn/fzf', {'do': './install --bin'}                          " fuzzy finder
+    Plug 'junegunn/fzf.vim'                                                 " vim plugin for fuzzy finder
+    Plug 'majutsushi/tagbar'                                                " class outline viewer
+    Plug 'lyuts/vim-rtags'                                                  " vim plugin for rtags
+    " Plug 'w0rp/ale'                                                         " asynchronous lint engine
+    Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer'} " code completion engine, using libclang for C/C++
+    Plug 'scrooloose/nerdtree'                                              " filesystem tree in vim
+    Plug 'Xuyuanp/nerdtree-git-plugin'                                      " show git file status in NERDTree
+    Plug 'airblade/vim-gitgutter'                                           " show git file change when editing
+    Plug 'flazz/vim-colorschemes'                                           " various color schemes
+    Plug 'tomasr/molokai'                                                   " the famous molokai theme
+    Plug 'joshdick/onedark.vim'                                             " the great onedark theme
+    Plug 'altercation/vim-colors-solarized'                                 " the famous solarized theme
+    Plug 'sheerun/vim-polyglot'                                             " better syntax highlighting
+    Plug 'vim-airline/vim-airline'                                          " better tabline and statusline
+    Plug 'vim-airline/vim-airline-themes'                                   " themes for airline
 
-    call vundle#end()
+    call plug#end()
 " }}}
-
-filetype plugin indent on " required
-syntax on " enable syntax highlight and completion
 
 " color scheme {{{
     " set background=dark
@@ -165,11 +162,6 @@ syntax on " enable syntax highlight and completion
 " }}}
 
 " plugin settings {{{
-    " easy-motion {{{
-        " use original <Leader><Leader> to avoid conflicts
-        " let g:EasyMotion_leader_key = '<Leader>'
-    " }}}
-
     " tabular {{{
         nnoremap <Leader>= :Tabularize /=<CR>
         vnoremap <Leader>= :Tabularize /=<CR>
@@ -208,11 +200,6 @@ syntax on " enable syntax highlight and completion
         noremap <Leader>rc :call rtags#FindSubClasses()<CR>
         noremap <Leader>rd :call rtags#Diagnostics()<CR>
     " }}}
-
-    " " neomake {{{
-    "     let g:neomake_open_list = 2
-    "     let g:neomake_logfile = '/tmp/neomake.log'
-    " " }}}
 
     " fugitive {{{
         nnoremap <Leader>ga :Gwrite<CR>
