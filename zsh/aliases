@@ -15,6 +15,9 @@ alias .5='cd ../../../../..'
 alias ls='LC_COLLATE=C ls --color=auto --group-directories-first'
 alias ll='ls -alF'
 
+# cat
+alias cat=bat
+
 # grep
 alias grep='grep --color=auto'
 
