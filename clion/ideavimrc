@@ -25,6 +25,9 @@ vnoremap zf :<bs><bs><bs><bs><bs>action VimVisualSwapSelections<CR>:action Colla
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
+" replace selected content and do NOT save replaced content in register
+vnoremap <Leader>P "_dP
+
 " copy/paste from/to system clipboard
 vnoremap <Leader>y  "+y
 vnoremap <Leader>p  "+p
@@ -61,6 +64,10 @@ nnoremap <Leader>rc :action CMake.ReloadCMakeProject<CR>
 nnoremap <Leader>mk :action Build<CR>
 
 nnoremap <CR> :
+
+set easymotion
+set surround
+set multiple-cursors
 
 
 " all available actions of clion, fetched by :actionlist
