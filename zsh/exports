@@ -17,3 +17,6 @@ export ZSH_COMPDUMP="$XDG_CACHE_HOME/zsh/zcompdump"
 
 # Node Version Manager
 export NVM_DIR="$XDG_CONFIG_HOME/nvm"
+
+# Homebrew
+export HOMEBREW_NO_AUTO_UPDATE=1
