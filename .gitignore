@@ -93,3 +93,11 @@ user-dirs.dirs
 user-dirs.locale
 mimeapps.list
 Trolltech.conf
+bin/blade
+bin/bladefunctions
+bin/genlibbuild
+bin/lsnobuild
+bin/lsrc
+bin/merge-static-libs
+bin/pip
+bin/pip2
