@@ -7,16 +7,20 @@
 My personal dotfiles for Archlinux.
 
 : $ cd ~
-: $ git clone https://github.com/kelvinh/dotfiles.git .config
-: $ cd ~/.config
-: $ git clone https://github.com/creationix/nvm.git nvm
+: $ git clone https://github.com/sillykelvin/dotfiles.git ~/.config
+: $ git clone https://github.com/creationix/nvm.git ~/.config/nvm
+: $ git clone https://github.com/junegunn/fzf.git ~/.config/fzf
+: $ git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.config/zsh/oh-my-zsh
+: $ git clone https://github.com/zsh-users/zsh-autosuggestions ~/.config/zsh/oh-my-zsh/custom/plugins/zsh-autosuggestions
+: $ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.config/zsh/oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+: $ git clone https://github.com/syl20bnr/spacemacs.git ~/.config/emacs/emacs.d
 : $ cd ~/.config/nvm
 : $ git checkout `git describe --abbrev=0 --tags --match "v[0-9]*" $(git rev-list --tags --max-count=1)`
 : $ source nvm.sh
-: $ cd ~/.config/zsh
-: $ git clone https://github.com/robbyrussell/oh-my-zsh.git
-: $ cd ~/.config/emacs
-: $ git clone https://github.com/syl20bnr/spacemacs.git emacs.d
+: $ cd ~/.config/fzf
+: $ ./install --bin
+: $ cd ~/.config/bin
+: $ ln -s ~/.config/fzf/bin/fzf fzf
 : $ cd ~
 : $ ln -s .config/alsa/asoundrc .asoundrc
 : $ ln -s .config/emacs/emacs.d .emacs.d
