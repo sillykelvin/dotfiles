@@ -1,3 +1,0 @@
-# autostart X at login
-# https://wiki.archlinux.org/index.php/Xinitrc
-[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx

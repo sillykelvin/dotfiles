@@ -1,109 +1,153 @@
-#
 # ZSH configuration
-#
+# -----------------
 
-# Workaround WSL error: "nice(5) failed: operation not permitted"
-unsetopt BG_NICE
+case "$(uname -sr)" in
+    Darwin*)
+        OS=mac
+        ;;
+    Linux*Microsoft*)
+        OS=wsl
+        ;;
+    Linux*)
+        OS=linux
+        ;;
+    *)
+        OS=unknown
+        ;;
+esac
 
-# Workaround incorrect WSL directory permission: 0777
-umask 0022
-
-# Environment variables
-source "$HOME/.config/zsh/exports"
-
-if [ ! -n "$ZSH" ]; then
-  ZSH="$HOME/.config/zsh/oh-my-zsh"
-fi
-
-if [ ! -n "$ZSH_COMPDUMP" ]; then
-    ZSH_COMPDUMP="$HOME/.cache/zsh/zcompdump"
-fi
-
-if [ -s "$NVM_DIR/nvm.sh" ]; then
-    source "$NVM_DIR/nvm.sh"
-fi
-
-# mkdir for zsh cache
-zsh_cache=$HOME/.cache/zsh
-if [ -n "$XDG_CACHE_HOME" ]; then
-    zsh_cache=$XDG_CACHE_HOME/zsh
-fi
-mkdir -p $zsh_cache
-unset zsh_cache
-
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-ZSH_THEME="af-magic"
-
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(git docker docker-compose golang zsh-autosuggestions zsh-syntax-highlighting)
-
-source $ZSH/oh-my-zsh.sh
-
-################################################################################
+#===== ZSH =====#
 
 # History file configuration
 HISTFILE=$XDG_CACHE_HOME/zsh/zsh_history
-HISTSIZE=7000
-SAVEHIST=7000
+HISTSIZE=100000
+SAVEHIST=100000
 
-# Auto change directory if a path inputted instead of a command
+# Auto change directory
 setopt autocd
 
 # Set emacs like key binding
 bindkey -e
 
-# Execute in background
-{
-   # Compile the completion dump to increase startup speed
-   dump_file="$ZSH_COMPDUMP"
-   if [[ "$dump_file" -nt "${dump_file}.zwc" || ! -s "${dump_file}.zwc" ]]; then
-      zcompile "$dump_file"
-   fi
-} &!
+#===== Exports =====#
 
-# Aliases
-source "$XDG_CONFIG_HOME/zsh/aliases"
+export PATH="$HOME/.config/bin:$PATH"
 
-# Setup fzf
-source "$XDG_CONFIG_HOME/fzf/shell/key-bindings.zsh"
-# source "$XDG_CONFIG_HOME/fzf/shell/completion.zsh"
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DATA_HOME="$HOME/.local/share"
+
+export ZSH="$XDG_CONFIG_HOME/zsh/oh-my-zsh"
+export ZSH_COMPDUMP="$XDG_CACHE_HOME/zsh/zcompdump"
+
+export NVM_DIR="$XDG_CONFIG_HOME/nvm"
+export PYENV_ROOT="$HOME/.pyenv"
+export CARGO_ROOT="$HOME/.cargo"
+
+# Colorizing pager for `man`
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+
+if [[ "$OS" == "mac" ]]; then
+    BREW_DIR=/opt/homebrew
+    eval "$(${BREW_DIR}/bin/brew shellenv)"
+    export PATH="$BREW_DIR/opt/coreutils/libexec/gnubin:$PATH"
+    export HOMEBREW_NO_AUTO_UPDATE=1
+fi
+
+#===== Oh-my-zsh =====#
+
+ZSH_THEME="af-magic"
+plugins=(git docker golang kubectl zsh-autosuggestions zsh-syntax-highlighting)
+source "$ZSH/oh-my-zsh.sh"
+
+#===== Misc =====#
+
+eval "$(fzf --zsh)"
+[[ -f "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh"
+[[ -f "$CARGO_ROOT/env" ]] && source "CARGO_ROOT/env"
+[[ -d "$PYENV_ROOT/bin" ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+command -v pyenv >/dev/null 2>&1 && eval "$(pyenv init -)"
+
+if [[ "$OS" == "wsl" ]]; then
+    # Workaround WSL error: "nice(5) failed: operation not permitted"
+    unsetopt BG_NICE
+
+    # Workaround incorrect WSL directory permission: 0777
+    umask 0022
+fi
+
+#===== Aliases =====#
+
+alias .0='cd .'
+alias .1='cd ..'
+alias .2='cd ../..'
+alias .3='cd ../../..'
+alias .4='cd ../../../..'
+alias .5='cd ../../../../..'
+
+# alias ls='LC_COLLATE=C ls --color=auto --group-directories-first'
+alias ls='ls --color=auto --group-directories-first'
+alias ll='ls -alF'
+alias lh='ll -h'
+
+alias cat=bat
+
+alias grep='grep --color=auto'
+
+alias t='tail -f'
+
+alias ff='find . -type f -name'
+
+alias pss='ps ux | grep -v grep | grep -iF '
+
+alias mk='make'
+alias mk2='make -j2'
+alias mk4='make -j4'
+alias mk8='make -j8'
+alias mki='make install'
+alias mka='make -j$(nproc)'
+alias mc='make clean'
+alias rmk='make clean;make -j$(nproc)'
+alias nj='ninja -v'
+
+alias vi=nvim
+alias vim=nvim
+
+alias rd='rm -rf'
+
+alias cls=clear
+
+alias ping='ping -c 3'
+
+alias fkgfw='proxychains4'
+alias fk='proxychains4 -q'
+
+alias s=svn
+alias ss='svn st'
+alias sst='svn st | grep "^[^?]"'
+alias sup='svn up'
+alias scm='svn ci -m'
+alias sdf='svn diff'
+
+alias g=git
+alias gs='git status'
+alias ga='git add'
+alias gc='git checkout'
+alias gb='git branch -av'
+alias gm='git merge'
+alias gd='git diff'
+alias gdc='git diff --cached'
+alias gcm='git commit -m'
+alias gcam='git commit -am'
+alias gl='git log'
+alias glgdo='git log --graph --decorate --oneline'
+alias gpo='git push origin'
+alias gpom='git push origin master'
+alias gpod='git push origin devel'
+alias glom='git pull origin master'
+alias glod='git pull origin devel'
+
+alias cbu='cargo build --all-targets'
+alias ccl='cargo clean'
+alias cad='cargo add'
+alias cte='cargo test -- --nocapture'
