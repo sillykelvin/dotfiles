@@ -16,19 +16,6 @@ case "$(uname -sr)" in
         ;;
 esac
 
-#===== ZSH =====#
-
-# History file configuration
-HISTFILE=$XDG_CACHE_HOME/zsh/zsh_history
-HISTSIZE=100000
-SAVEHIST=100000
-
-# Auto change directory
-setopt autocd
-
-# Set emacs like key binding
-bindkey -e
-
 #===== Exports =====#
 
 export PATH="$HOME/.config/bin:$PATH"
@@ -43,6 +30,7 @@ export ZSH_COMPDUMP="$XDG_CACHE_HOME/zsh/zcompdump"
 export NVM_DIR="$XDG_CONFIG_HOME/nvm"
 export PYENV_ROOT="$HOME/.pyenv"
 export CARGO_ROOT="$HOME/.cargo"
+export DOTNET_ROOT="$HOME/.dotnet"
 
 # Colorizing pager for `man`
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
@@ -54,6 +42,19 @@ if [[ "$OS" == "mac" ]]; then
     export HOMEBREW_NO_AUTO_UPDATE=1
 fi
 
+#===== ZSH =====#
+
+# History file configuration
+HISTFILE=$XDG_CACHE_HOME/zsh/zsh_history
+HISTSIZE=100000
+SAVEHIST=100000
+
+# Auto change directory
+setopt autocd
+
+# Set emacs like key binding
+bindkey -e
+
 #===== Oh-my-zsh =====#
 
 ZSH_THEME="af-magic"
@@ -62,10 +63,12 @@ source "$ZSH/oh-my-zsh.sh"
 
 #===== Misc =====#
 
-eval "$(fzf --zsh)"
+source <(fzf --zsh)
 [[ -f "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh"
-[[ -f "$CARGO_ROOT/env" ]] && source "CARGO_ROOT/env"
+[[ -f "$CARGO_ROOT/env" ]] && source "$CARGO_ROOT/env"
 [[ -d "$PYENV_ROOT/bin" ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+[[ -d "$DOTNET_ROOT" ]] && export PATH="$DOTNET_ROOT:$PATH"
+[[ -d "$DOTNET_ROOT/tools" ]] && export PATH="$DOTNET_ROOT/tools:$PATH"
 command -v pyenv >/dev/null 2>&1 && eval "$(pyenv init -)"
 
 if [[ "$OS" == "wsl" ]]; then
